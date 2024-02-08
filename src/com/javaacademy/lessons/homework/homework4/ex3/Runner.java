@@ -28,12 +28,12 @@ public class Runner {
 
         System.out.println("Небоскребы выше 1 км.:");
         skyscrapersDistinct.stream()
-                .filter(e -> e.getHeight() > 1000)
+                .filter(skyscraper -> skyscraper.getHeight() > 1000)
                 .peek(System.out::println)
                 .toList()
                 .stream()
-                .findAny()
-                .ifPresentOrElse(e -> {}, () -> System.out.println("Таких небоскребов нет"));
+                .findFirst()
+                .ifPresentOrElse(skyscraper -> {}, () -> System.out.println("Таких небоскребов нет"));
     }
 
     private static void addSkyscrapers() {
