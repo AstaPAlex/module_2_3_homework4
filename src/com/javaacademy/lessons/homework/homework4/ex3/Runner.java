@@ -28,7 +28,7 @@ public class Runner {
 
         System.out.println("Небоскребы выше 1 км.:");
         skyscrapersDistinct.stream()
-                .filter(e -> e.getHeight() > 800)
+                .filter(e -> e.getHeight() > 1000)
                 .peek(System.out::println)
                 .toList()
                 .stream()

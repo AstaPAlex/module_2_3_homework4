@@ -7,13 +7,17 @@ public class Runner {
         String[] words = new String[] {"тонь", "тополь", "боль", "рой", "стройка"};
         char ch = 'о';
         Arrays.stream(words)
-                .map(word -> word.chars()
-                        .filter(letter -> letter == ch)
-                        .count())
+                .map(word -> findCount(word, ch))
                 .filter(counter -> counter > 0)
                 .reduce(Long::sum)
-                .ifPresentOrElse(System.out::println,() -> {
+                .ifPresentOrElse(System.out::println, () -> {
                     throw new RuntimeException();
                 });
+    }
+
+    public static Long findCount(String word, char ch) {
+        return word.chars()
+                .filter(letter -> letter == ch)
+                .count();
     }
 }
